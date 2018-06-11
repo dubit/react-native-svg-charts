@@ -63,6 +63,7 @@ class YAxis extends PureComponent {
             max,
             svg,
             children,
+            ticks,
         } = this.props
 
         const { height } = this.state
@@ -74,9 +75,9 @@ class YAxis extends PureComponent {
         const values = data.map((item, index) => yAccessor({ item, index }))
 
         const extent = array.extent([ ...values, min, max ])
-        const ticks = scale === d3Scale.scaleBand ?
-            values :
-            array.ticks(extent[ 0 ], extent[ 1 ], numberOfTicks)
+        // const ticks = scale === d3Scale.scaleBand ?
+        //     values :
+        //     array.ticks(extent[ 0 ], extent[ 1 ], numberOfTicks)
 
         const domain = scale === d3Scale.scaleBand ? values : extent
 
